@@ -27,7 +27,7 @@
 							<input type="text" class="form-control" name="nama" >
 						</div>
 					</div>
-                    <div class="row" style="margin-top:10px;">
+                    <div class="col-md-12" style="margin-top:10px;">
 				<div class="col-md-2">
 					<label class="text-uppercase">Gender</label>
 				</div>
@@ -44,7 +44,7 @@
 							<input type="text" class="form-control" name="ttl">
 						</div>
 					</div>
-            <div class="row" style="margin-top:15px;">
+            <div class="col-md-12" style="margin-top:15px;">
 				<div class="col-md-2">
 					<label class="text-uppercase">Tanggal Lahir</label>
 				</div>
@@ -60,7 +60,7 @@
 							<input type="text" class="form-control" name="agama">
 						</div>
 					</div>
-                    <div class="row" style="margin-top:10px;">
+                    <div class="col-md-12" style="margin-top:10px;">
 				<div class="col-md-2">
 					<label class="text-uppercase">Status</label>
 				</div>
@@ -77,7 +77,7 @@
 							<input type="text" class="form-control" name="pendidikan">
 						</div>
 					</div>
-                    <div class="row" style="margin-top:15px;">
+                    <div class="col-md-12" style="margin-top:15px;">
 				<div class="col-md-2">
 					<label class="text-uppercase">Alamat</label>
 				</div>
