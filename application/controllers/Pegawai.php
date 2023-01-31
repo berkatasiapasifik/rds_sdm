@@ -70,17 +70,16 @@ class pegawai extends CI_Controller {
 		}else{
 			$invoice = array(
 				'nomor'=>'INV'.date('ymdhis'),
-				'no_meja'=>$input->post('no_meja'),
-				'nama_customer'=>$input->post('nm_customer'),
-				'sub_total'=>$input->post('sub_total'),
-				'diskon_persen'=>$input->post('diskon_persen'),
-				'diskon_amount'=>$input->post('diskon_amount'),
-				'total_amount'=>$input->post('grand_total'),
-				'input_user'=>$input->post('id_user'),
-				'input_tglwaktu'=>date('Y-m-d H:i:s'),
-				'tgl_invoice'=>date('Y-m-d H:i:s'),
-				'nama_pelayan'=>$input->post('nm_pelayan'),
-				'catatan'=>htmlspecialchars($input->post('catatan'))
+				'kode'=>$input->post('id'),
+				'nip'=>$input->post('nip'),
+				'nama'=>$input->post('nama'),
+				'gender'=>$input->post('jenis_kel'),
+				'ttl'=>$input->post('ttl'),
+				'tgllahir'=>date('Y-m-d H:i:s'),
+				'agama'=>$input->post('agama'),
+				'status'=>$input->post('status'),
+				'pendidikan'=>$input->post('pendidikan'),
+				'alamat'=>$input->post('alamat')
 			);
 
 			$d_invoice = $input->post('list_produk');
