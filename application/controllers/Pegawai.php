@@ -50,16 +50,16 @@ class pegawai extends CI_Controller {
 		$input = $this->input;
 
 		// Form validation
-		$form->set_rules('kode','<b class="text-uppercase">Kode</b>','required|is_unique[pegawai.kode]');
+		$form->set_rules('kode','<b class="text-uppercase">KODE</b>','required|is_unique[pegawai.kode]');
 		$form->set_rules('nip','<b class="text-uppercase">NIP</b>','required');
-		$form->set_rules('nama','<b class="text-uppercase">Nama</b>','required');
-		$form->set_rules('gender','<b class="text-uppercase">Gender/b','required');
-		$form->set_rules('ttl','<b class="text-uppercase">Tempat Lahir/b','required');
+		$form->set_rules('nama','<b class="text-uppercase">NAMA</b>','required');
+		$form->set_rules('gender','<b class="text-uppercase">GENDER/b','required');
+		$form->set_rules('ttl','<b class="text-uppercase">TEMPAT LAHIR/b','required');
 		$form->set_rules('tgllahir','<b>tgllahir</b>','required');
-		$form->set_rules('agama','<b class="text-uppercase">Agama/b','required');
+		$form->set_rules('agama','<b class="text-uppercase">AGAMA/b','required');
 		$form->set_rules('atatus','<b>Status</b>','required');
-		$form->set_rules('pendidikan','<b class="text-uppercase">Pendidikan/b','required');
-		$form->set_rules('alamat','<b class="text-uppercase">Alamat/b','required');
+		$form->set_rules('pendidikan','<b class="text-uppercase">PENDIDIKAN/b','required');
+		$form->set_rules('alamat','<b class="text-uppercase">ALAMAT/b','required');
 
 		if($form->run() == FALSE){
 			$respon = array(
@@ -107,7 +107,7 @@ class pegawai extends CI_Controller {
 					if($res_d_invoice['code'] == 0){
 						$w_item = array('id'=>$item['id']);
 						$d_item = array('jumlah'=>$item['jumlah']-$d_invoice['jumlah']);
-						$this->crud->updData('produk',$w_item,$d_item);
+						$this->crud->updData('',$w_item,$d_item);
 					}
 				}
 			}

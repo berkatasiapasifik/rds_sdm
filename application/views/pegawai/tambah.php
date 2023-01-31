@@ -95,3 +95,34 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+$("form#form-produk").submit(function(e) {
+    e.preventDefault();    
+
+    var conf = confirm("Apakah anda yakin ingin menyimpan ini ?");
+
+    if(conf == true){
+    	var formData = new FormData(this);
+
+	    $.ajax({
+	        url: './savedata',
+	        type: 'POST',
+	        data: formData,
+	        cache: false,
+	        contentType: false,
+	        processData: false,
+	        beforeSend:function(){
+	        	$('#alert-produk').html('<div class="alert alert-warning"><i class="fa fa-spinner fa-spin"></i> Menyimpan data...</div>');
+	        },
+	        success: function (data) {
+
+	          	$('#alert-produk').html(data);
+	          	 
+	        },
+	        error:function(xhr){
+	        	$('#alert-produk').html(xhr.responseText);
+	        }
+	    });
+    }
+});
+</script>
