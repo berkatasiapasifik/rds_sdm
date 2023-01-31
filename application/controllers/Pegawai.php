@@ -38,11 +38,11 @@ class pegawai extends CI_Controller {
 		$sql_listkatagori = '
 			SELECT DISTINCT a.pegawai AS pegawai
 			FROM pegawai
-			ORDER BY a.pegarai ASC
+			ORDER BY a.pegawai ASC
 		';
 		$data['listPegawai'] = $this->crud->getDataQuery($sql_listPegawai)->result();
 		$data['crud'] = $this->crud;
-		$this->load->view('pegawai/listproduk',$data);
+		$this->load->view('views/pegawai/index',$data);
 	}
 
 	public function saveData(){
@@ -69,7 +69,6 @@ class pegawai extends CI_Controller {
 			//print_r($respon);
 		}else{
 			$invoice = array(
-				'nomor'=>'INV'.date('ymdhis'),
 				'kode'=>$input->post('id'),
 				'nip'=>$input->post('nip'),
 				'nama'=>$input->post('nama'),
@@ -82,16 +81,16 @@ class pegawai extends CI_Controller {
 				'alamat'=>$input->post('alamat')
 			);
 
-			$d_invoice = $input->post('list_produk');
+			$d_invoice = $input->post('pegawai');
 			//print_r($invoice);
 			//print_r($d_invoice);
 
 			$respon = $this->crud->insertDataSave('invoice',$invoice);
 
 			if($respon['code'] == 0){
-				$list_produk = (array)json_decode($input->post('list_produk'),true);
+				$list_produk = (array)json_decode($input->post('pegawai'),true);
 				foreach($list_produk as $list => $l){
-					$item = $this->crud->getDataWhere('produk',array('id'=>$l['id_produk']))->row_array();
+					$item = $this->crud->getDataWhere('pegawai',array('id'=>$l['id']))->row_array();
 					$d_invoice = array(
 						'id_invoice'=>$respon['last_id'],
 						'id_produk'=>$item['id'],
