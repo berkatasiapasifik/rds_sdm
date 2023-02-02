@@ -27,18 +27,18 @@
 							</thead>
 							<tbody>
 								<?php foreach($pegawai as $p):?>
-								<tr>
-									<td class="text-center">
-										<a href="<?php echo base_url();?>main/product/detail?id=<?php echo $p->id;?>"><?php echo $p->kode;?></a>
-									</td>
-									<td class="text-center"><?php echo $p->nama;?></td>
-									<td class="pull-right">
-										<?php echo $p->jumlah;?>
-									</td>
-									<td><?php echo $p->satuan;?></td>
-									<td class="text-right"><?php echo $p->matauang.' '.number_format($p->harga,2,',','.');?></td>
-									<td class="text-center"><?php echo $p->katagori;?></td>
-								</tr>
+									<tr>
+										<td><?php echo $p->id;?></td>
+										<td><?php echo $p->nip;?></td>
+										<td><?php echo $p->nama;?></td>
+										<td><?php echo $p->jenis_kel;?></td>
+										<td><?php echo $p->ttl;?></td>
+										<td><?php echo $p->tanggal_lahir;?></td>
+										<td><?php echo $p->agama;?></td>
+										<td><?php echo $p->status;?></td>
+										<td><?php echo $p->pendidikan;?></td>
+										<td><?php echo $p->alamat;?></td>
+									</tr>
 								<?php endforeach;?>
 							</tbody>
 						</table>

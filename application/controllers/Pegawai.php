@@ -50,14 +50,14 @@ class pegawai extends CI_Controller {
 		$input = $this->input;
 
 		// Form validation
-		$form->set_rules('kode','<b class="text-uppercase">KODE</b>','required|is_unique[pegawai.kode]');
+		$form->set_rules('kode','<b class="text-uppercase">ID</b>','required|is_unique[pegawai.id]');
 		$form->set_rules('nip','<b class="text-uppercase">NIP</b>','required');
 		$form->set_rules('nama','<b class="text-uppercase">NAMA</b>','required');
 		$form->set_rules('gender','<b class="text-uppercase">GENDER/b','required');
 		$form->set_rules('ttl','<b class="text-uppercase">TEMPAT LAHIR/b','required');
 		$form->set_rules('tgllahir','<b>tgllahir</b>','required');
 		$form->set_rules('agama','<b class="text-uppercase">AGAMA/b','required');
-		$form->set_rules('atatus','<b>Status</b>','required');
+		$form->set_rules('status','<b>Status</b>','required');
 		$form->set_rules('pendidikan','<b class="text-uppercase">PENDIDIKAN/b','required');
 		$form->set_rules('alamat','<b class="text-uppercase">ALAMAT/b','required');
 
@@ -68,52 +68,32 @@ class pegawai extends CI_Controller {
 			);
 			//print_r($respon);
 		}else{
+			$tgl_lahir = NULL;
+			if($input->post('tgllahir') != NULL){
+				$tgl_lahir = date('Y-m-d',strtotime($input->post('tgllahir')));
+			}
 			$invoice = array(
-				'kode'=>$input->post('id'),
+				'id'=>$input->post('id'),
 				'nip'=>$input->post('nip'),
 				'nama'=>$input->post('nama'),
-				'gender'=>$input->post('jenis_kel'),
+				'jenis_kel'=>$input->post('gender'),
 				'ttl'=>$input->post('ttl'),
-				'tgllahir'=>date('Y-m-d H:i:s'),
+				'tanggal_lahir'=>$tgl_lahir,
 				'agama'=>$input->post('agama'),
 				'status'=>$input->post('status'),
 				'pendidikan'=>$input->post('pendidikan'),
 				'alamat'=>$input->post('alamat')
 			);
+			//$d_invoice = $input->post('pegawai');
 
-			$d_invoice = $input->post('pegawai');
-			//print_r($invoice);
-			//print_r($d_invoice);
-
-			$respon = $this->crud->insertDataSave('invoice',$invoice);
-
-			if($respon['code'] == 0){
-				$list_produk = (array)json_decode($input->post('pegawai'),true);
-				foreach($list_produk as $list => $l){
-					$item = $this->crud->getDataWhere('pegawai',array('id'=>$l['id']))->row_array();
-					$d_invoice = array(
-						'id_invoice'=>$respon['last_id'],
-						'id_produk'=>$item['id'],
-						'kode_produk'=>$item['kode'],
-						'nama_produk'=>strtoupper($item['nama']),
-						'satuan_produk'=>$item['satuan'],
-						'jumlah'=>$l['qty_produk'],
-						'harga'=>$l['harga_produk'],
-						'subtotal_amount'=>$l['subtotal_produk']
-					);
-
-					$res_d_invoice = $this->crud->insertDataSave('d_invoice',$d_invoice);
-
-					if($res_d_invoice['code'] == 0){
-						$w_item = array('id'=>$item['id']);
-						$d_item = array('jumlah'=>$item['jumlah']-$d_invoice['jumlah']);
-						$this->crud->updData('',$w_item,$d_item);
-					}
-				}
-			}
+			$respon = $this->crud->insertDataSave('pegawai',$invoice);
 		}
 
-		echo json_encode($respon);
+		if($respon['code'] == 0){
+			redirect('pegawai');
+		}else{
+			echo $respon['message'];
+		}
 	}
 
 	public function detailData(){

@@ -96,7 +96,7 @@
 	</div>
 </div>
 <script type="text/javascript">
-$("form#form-produk").submit(function(e) {
+$("form#form-pegawai").submit(function(e) {
     e.preventDefault();    
 
     var conf = confirm("Apakah anda yakin ingin menyimpan ini ?");
@@ -112,15 +112,15 @@ $("form#form-produk").submit(function(e) {
 	        contentType: false,
 	        processData: false,
 	        beforeSend:function(){
-	        	$('#alert-produk').html('<div class="alert alert-warning"><i class="fa fa-spinner fa-spin"></i> Menyimpan data...</div>');
+	        	$('#alert-pegawai').html('<div class="alert alert-warning"><i class="fa fa-spinner fa-spin"></i> Menyimpan data...</div>');
 	        },
 	        success: function (data) {
 
-	          	$('#alert-produk').html(data);
+	          	$('#alert-pegawaii').html(data);
 	          	 
 	        },
 	        error:function(xhr){
-	        	$('#alert-produk').html(xhr.responseText);
+	        	$('#alert-pegawai').html(xhr.responseText);
 	        }
 	    });
     }
