@@ -25,15 +25,11 @@
 								<?php foreach($pegawai as $p):?>
 									<tr>
 										<td><?php echo $p->id;?></td>
-										<td><?php echo $p->nip;?></td>
 										<td><?php echo $p->nama;?></td>
-										<td><?php echo $p->jenis_kel;?></td>
-										<td><?php echo $p->ttl;?></td>
-										<td><?php echo $p->tanggal_lahir;?></td>
-										<td><?php echo $p->agama;?></td>
-										<td><?php echo $p->status;?></td>
-										<td><?php echo $p->pendidikan;?></td>
-										<td><?php echo $p->alamat;?></td>
+										<td><?php echo $p->dinas;?></td>
+										<td><?php echo $p->durasi;?></td>
+										<td><?php echo $p->hari;?></td>
+										<td><?php echo $p->alasan;?></td>
 									</tr>
 								<?php endforeach;?>
 							</tbody>
