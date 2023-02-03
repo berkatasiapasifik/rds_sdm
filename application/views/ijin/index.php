@@ -6,23 +6,19 @@
 			</div>
 			<div class="box-body">
 				<div class="col-md-12" style="margin-bottom: 10px;">
-					<a class="btn btn-default" href="<?php echo base_url();?>pegawai/tambah">Tambah Ijin</a>
+					<a class="btn btn-default" href="<?php echo base_url();?>ijin/tambah">Tambah Ijin</a>
 				</div>
 				<div class="col-md-12" style="margin-top:10px;">
 					<div class="table-responsive">
 						<table class="table table-bordered" id="tbl_pegawai">
 							<thead>
 								<tr>
-									<th class="text-uppercase text-center" style="width:150px;">Kode Pegawai</th>
-									<th class="text-uppercase text-center" style="width:250px;">NIP</th>
-									<th class="text-uppercase text-center" style="width:90px;">Nama</th>
-									<th class="text-uppercase text-center" style="width:95px;">Jenis Kelamin</th>
-									<th class="text-uppercase text-center">Tempat lahir</th>
-									<th class="text-uppercase text-center">Tanggal lahir</th>
-									<th class="text-uppercase text-center">Agama</th>
-									<th class="text-uppercase text-center">Status</th>
-									<th class="text-uppercase text-center">Pendidikan</th>
-									<th class="text-uppercase text-center">alamat</th>
+									<th class="text-uppercase text-center" style="width:150px;">ID</th>
+									<th class="text-uppercase text-center" style="width:250px;">Nama</th>
+									<th class="text-uppercase text-center" style="width:90px;">Dinas</th>
+									<th class="text-uppercase text-center" style="width:95px;">Durasi</th>
+									<th class="text-uppercase text-center">Hari</th>
+									<th class="text-uppercase text-center">Alasam</th>
 								</tr>
 							</thead>
 							<tbody>

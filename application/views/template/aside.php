@@ -57,7 +57,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-angle-right"></i> <span>Izin/Cuti</span></a></li>
+          <li><a href="<?php echo base_url();?>main/ijin/ijin"><i class="fa fa-angle-right"></i> <span>Izin/Cuti</span></a></li>
           <li><a href="#"><i class="fa fa-angle-right"></i> <span>Lembur</span></a></li>
           <li><a href="#"><i class="fa fa-angle-right"></i> <span>Resign</span></a></li>
         </ul>
